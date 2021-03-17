@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CountdownContainer, CountdownButton } from './styles';
+
+import { ChallengesContext } from '../../contexts/ChallengesContext';
 
 import { Close } from '@styled-icons/evaicons-solid/Close';
 import { Play } from '@styled-icons/foundation/Play';
 import { CheckCircle } from '@styled-icons/boxicons-solid/CheckCircle';
 
 
-let countdownTimeout: NodeJS.Timeout
+let countdownTimeout: any
 
 export function Countdown() {
+    const { startNewChallenge } = useContext(ChallengesContext)
+
     const [isActive, setIsActive] = useState(false)
     const [time, setTime] = useState(0.05 * 60)
     const [hasFinished, setHasFinished] = useState(false)
@@ -38,6 +42,7 @@ export function Countdown() {
         } else if (isActive && time === 0) {
             setHasFinished(true)
             setIsActive(false)
+            startNewChallenge()
         }
     }, [isActive, time])
 
