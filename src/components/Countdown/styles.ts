@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface Props {
+    active: boolean;
+}
 
 
 export const CountdownContainer = styled.div`
@@ -38,7 +42,7 @@ export const CountdownContainer = styled.div`
     }
 `
 
-export const CountdownButton = styled.button`
+export const CountdownButton = styled.button<Props>`
     width: 100%;
     height: 4.5rem;
     margin-top: 2rem;
@@ -46,20 +50,71 @@ export const CountdownButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    position: relative;
 
     border: 0;
     border-radius: 5px;
-
-    background: var(--blue);
-    color: var(--white);
 
     font-size: 1.20rem;
     font-weight: 600;
 
     transition: background-color 0.2s;
 
-    &:hover {
-        background: var(--blue-dark);
+    svg {
+        width: 1.6rem;
+        height: 1.6rem;
+
+        margin-left: 0.5rem;
+    }
+
+    &:disabled {
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding-top: 1.4rem;
+        
+        background: var(--white);
+        color: var(--text);
+
+        cursor: not-allowed;
+
+        span {
+            width: 100%;
+            height: .2rem;
+            
+            background: var(--green);
+        }
+
+        svg {
+            color: var(--green);
+        }
+    }
+
+    ${({ active }) => 
+        active ? css`
+            background: var(--white);
+            color: var(--title);
+
+            svg {
+                color: var(--red);
+            }
+
+            &:not(:disabled):hover {
+                background: var(--red);
+                color: var(--white);
+
+                svg {
+                    color: var(--white);
+                }
+            }
+        `
+        : css`
+            background: var(--blue);
+            color: var(--white);
+
+            &:not(:disabled):hover {
+                background: var(--blue-dark);
+            }
+        `
     }
 `
