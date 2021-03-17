@@ -10,9 +10,13 @@ export const GlobalStyle = createGlobalStyle`
     }
     :root {
         --background: #F2F3F5;
+        --white: #FFF;
         --gray-line: #DCDDE0;
         --text: #666666;
+        --title: #2E384D;
         --green: #4CD62B;
+        --blue: #007580;
+        --blue-dark: #006570;
     }
 
     @media(max-width: 1080px) {
