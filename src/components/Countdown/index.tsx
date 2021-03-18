@@ -1,51 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
-import { CountdownContainer, CountdownButton } from './styles';
+import { useContext } from 'react';
 
-import { ChallengesContext } from '../../contexts/ChallengesContext';
+import { CountdownContext } from '../../contexts/CountdownContext';
+
+import { CountdownContainer, CountdownButton } from './styles';
 
 import { Close } from '@styled-icons/evaicons-solid/Close';
 import { Play } from '@styled-icons/foundation/Play';
 import { CheckCircle } from '@styled-icons/boxicons-solid/CheckCircle';
 
 
-let countdownTimeout: any
-
 export function Countdown() {
-    const { startNewChallenge } = useContext(ChallengesContext)
-
-    const [isActive, setIsActive] = useState(false)
-    const [time, setTime] = useState(0.05 * 60)
-    const [hasFinished, setHasFinished] = useState(false)
-
-    const minutes = Math.floor(time / 60)
-    const seconds = time % 60
+    const { minutes, seconds, hasFinished, isActive, startCountdown, resetCountdown } = useContext(CountdownContext)
 
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
-
-    function startCountdown() {
-        setIsActive(true)
-    }
-
-    function resetCountdown() {
-        clearTimeout(countdownTimeout)
-        setIsActive(false)
-        setTime(0.05 * 60)
-    }
-
-    useEffect(() => {
-        if (isActive && time > 0) {
-            countdownTimeout = setTimeout(() => {
-                setTime(time - 1)
-            }, 1000)
-
-        } else if (isActive && time === 0) {
-            setHasFinished(true)
-            setIsActive(false)
-            startNewChallenge()
-        }
-    }, [isActive, time])
-
+    
     return (
         <div>
             <CountdownContainer>
