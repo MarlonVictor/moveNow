@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 
         box-sizing: border-box;
     }
+    
     :root {
         --background: #F2F3F5;
         --white: #FFF;
@@ -18,6 +19,10 @@ export const GlobalStyle = createGlobalStyle`
         --red: #E83F5B;
         --blue: #007580;
         --blue-dark: #006570;
+    }
+    
+    .Toastify__toast--info {
+        background: var(--blue);
     }
 
     @media(max-width: 1080px) {

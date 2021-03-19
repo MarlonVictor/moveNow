@@ -1,3 +1,5 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { GlobalStyle } from '../styles/global';
 
 import { ChallengesProvider } from '../contexts/ChallengesContext';
