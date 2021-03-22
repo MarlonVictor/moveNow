@@ -25,6 +25,16 @@ export const CountdownContainer = styled.div`
         font-size: 8rem;
         text-align: center;
 
+        &:last-child {
+            @media(max-width: 720px) {
+                margin-top: 1rem;
+            }
+        }
+
+        @media(max-width: 425px) {
+            font-size: 7rem;
+        }
+
         span:first-child {
             flex: 1;
             border-right: 1px solid #F0F1F3;
@@ -83,6 +93,7 @@ export const CountdownButton = styled.button<Props>`
             height: .2rem;
             
             background: var(--green);
+            border-radius: 0 0 5px 5px;
         }
 
         svg {

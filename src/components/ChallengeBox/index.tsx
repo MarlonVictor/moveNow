@@ -24,12 +24,14 @@ export function ChallengeBox() {
         <ChallengeBoxContainer>
             {activeChallenge ? (
                 <ChallengeActive>
-                    <header>Ganhe {activeChallenge.amount} xp</header>
-                    <main>
-                        <img src={`icons/${activeChallenge.type}.svg`} />
-                        <strong>Novo desafio!</strong>
-                        <p>{activeChallenge.description}</p>
-                    </main>
+                    <div>
+                        <header>Ganhe {activeChallenge.amount} xp</header>
+                        <main>
+                            <img src={`icons/${activeChallenge.type}.svg`} />
+                            <strong>Novo desafio!</strong>
+                            <p>{activeChallenge.description}</p>
+                        </main>
+                    </div>
 
                     <footer>
                         <button type="button" onClick={handleChallengeFailed}>Falhei</button>

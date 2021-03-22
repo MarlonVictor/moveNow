@@ -1,4 +1,6 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+
+import { LevelUpModal } from '../components/LevelUpModal';
 
 import { toast } from 'react-toastify';
 import  Cookies from 'js-cookie';
@@ -22,10 +24,11 @@ interface ChallengesContextData {
     startNewChallenge: () => void;
     resetChallenge: () => void;
     completeChallenge: () => void;
+    closeLevelUpModal: () => void;
 }
 
 interface ChallengesProviderProps {
-    children: ReactNode;
+    children: string;
     level: number;
     currentExperience: number;
     challengesCompleted: number;
@@ -40,6 +43,7 @@ export function ChallengesProvider({ children, ...rest } : ChallengesProviderPro
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0)
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0)
     const [activeChallenge, setActiveChallenge] = useState(null)
+    const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
 
     // power calculation to define the experience factor
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
@@ -53,8 +57,12 @@ export function ChallengesProvider({ children, ...rest } : ChallengesProviderPro
 
     function levelUp() {
         setLevel(level + 1)
+        setIsLevelUpModalOpen(true)
     }
 
+    function closeLevelUpModal() {
+        setIsLevelUpModalOpen(false)
+    }
 
     function startNewChallenge() {
         // generate a random number from 0 to the number of challenges we have in JSON 
@@ -89,16 +97,11 @@ export function ChallengesProvider({ children, ...rest } : ChallengesProviderPro
         if (finalExperience >= experienceToNextLevel) {
             finalExperience = finalExperience - experienceToNextLevel
             levelUp()
-
-            toast.info(`😍 Incrível! Você subiu para o level ${level + 1}`, {
-                position: 'top-right',  
-            })
-
-        } else {
-            toast.info('😎 Mandou bem!', {
-                position: 'top-right',  
-            })
         }
+        
+        toast.info('😎 Mandou bem!', {
+            position: 'top-right',  
+        })
 
         setCurrentExperience(finalExperience)
         setActiveChallenge(null)
@@ -116,10 +119,12 @@ export function ChallengesProvider({ children, ...rest } : ChallengesProviderPro
                 levelUp, 
                 startNewChallenge,
                 resetChallenge, 
-                completeChallenge
+                completeChallenge,
+                closeLevelUpModal
             }}
         >
             {children}
+            {isLevelUpModalOpen && <LevelUpModal />} 
         </ChallengesContext.Provider>
     )
 }

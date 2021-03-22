@@ -1,14 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    * {
-        margin: 0;
-        padding: 0;
-
-
-        box-sizing: border-box;
-    }
-    
     :root {
         --background: #F2F3F5;
         --white: #FFF;
@@ -19,6 +11,30 @@ export const GlobalStyle = createGlobalStyle`
         --red: #E83F5B;
         --blue: #007580;
         --blue-dark: #006570;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            transition:.3s;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background: var(--blue-dark);
+        }
+        ::-webkit-scrollbar-track{
+            background: var(--gray-line);
+            border-radius: 10px;
+        }
     }
     
     .Toastify__toast--info {
@@ -32,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     
-    @media(max-width: 720px) {
+    @media(max-width: 800px) {
         html {
             // 14px
             font-size: 87.5%;

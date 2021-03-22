@@ -8,7 +8,6 @@ export const ChallengeBoxContainer = styled.div`
     border-radius: 5px;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 
-    padding: 1.5rem 2rem;
     margin-left: 2.3rem;
 
     display: flex;
@@ -17,6 +16,10 @@ export const ChallengeBoxContainer = styled.div`
     justify-content: center;
 
     text-align: center;
+
+    @media(max-width: 720px) {
+        margin-left: 0;
+    }
 `
 
 export const ChallengeNotActive = styled.div`
@@ -54,6 +57,14 @@ export const ChallengeActive = styled.div`
     display: flex;
     flex-direction: column;
 
+    > div {
+        display: flex;
+        flex-direction: column;
+
+        height: 100%;
+        padding: 1.5rem 2rem;
+    }
+
     header {
         color: var(--blue);
         font-weight: 600;
@@ -86,35 +97,42 @@ export const ChallengeActive = styled.div`
     footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        border-top: 1px solid var(--gray-line);
 
         button {
-            height: 3rem;
+            height: 4.4rem;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
             border: 0;
-            border-radius: 5px;
 
             color: var(--white);
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 500;
 
             transition: filter 0.2s;
 
+            background: rgba(242, 243, 245, 0.8);
+
             &:hover {
-                filter: brightness(0.9);
+                filter: brightness(.9);
             }
         }
 
         button:first-child {
-            background: var(--red);
+            color: var(--red);
+
+            border-radius: 0px 0px 0px 5px;
+            border-right: 1px solid var(--gray-line);
         }
 
         button:last-child {
-            background: var(--green);
+            color: var(--green);
+
+            border-radius: 0px 0px 5px 0px;
+            border-left: 1px solid var(--gray-line);
         }
     }
 `
