@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const ChallengeBoxContainer = styled.div`
     height: 100%;
 
-    background: var(--white);
+    background: ${({ theme }) => theme.card};
     border-radius: 5px;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 
@@ -66,12 +66,12 @@ export const ChallengeActive = styled.div`
     }
 
     header {
-        color: var(--blue);
+        color: ${({ theme }) => theme.title};
         font-weight: 600;
         font-size: 1.25rem;
 
         padding: 0 2rem 1.5rem;
-        border-bottom: 1px solid var(--gray-line);
+        border-bottom: 1px solid ${({ theme }) => theme.grayLine};
     }
 
     main {
@@ -84,7 +84,7 @@ export const ChallengeActive = styled.div`
         strong {
             font-size: 2rem;
             font-weight: 600;
-            color: var(--title);
+            color: ${({ theme }) => theme.title};
 
             margin: 1.5rem 0 1rem;
         }
@@ -97,7 +97,7 @@ export const ChallengeActive = styled.div`
     footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        border-top: 1px solid var(--gray-line);
+        border-top: 1px solid ${({ theme }) => theme.grayLine};
 
         button {
             height: 4.4rem;
@@ -108,13 +108,11 @@ export const ChallengeActive = styled.div`
 
             border: 0;
 
-            color: var(--white);
+            color: #FFF;
             font-size: 1.2rem;
             font-weight: 500;
 
             transition: filter 0.2s;
-
-            background: rgba(242, 243, 245, 0.8);
 
             &:hover {
                 filter: brightness(.9);
@@ -122,17 +120,19 @@ export const ChallengeActive = styled.div`
         }
 
         button:first-child {
-            color: var(--red);
+            color: ${({ theme }) => theme.btnRed.color};
+            background: ${({ theme }) => theme.btnRed.background};
 
             border-radius: 0px 0px 0px 5px;
-            border-right: 1px solid var(--gray-line);
+            border-right: 1px solid ${({ theme }) => theme.grayLine};
         }
 
         button:last-child {
-            color: var(--green);
+            color: ${({ theme }) => theme.btnGreen.color};
+            background: ${({ theme }) => theme.btnGreen.background};
 
             border-radius: 0px 0px 5px 0px;
-            border-left: 1px solid var(--gray-line);
+            border-left: 1px solid ${({ theme }) => theme.grayLine};
         }
     }
 `

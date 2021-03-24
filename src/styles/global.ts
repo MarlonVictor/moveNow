@@ -2,13 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --background: #F2F3F5;
-        --white: #FFF;
-        --gray-line: #DCDDE0;
-        --text: #666666;
-        --title: #2E384D;
-        --green: #4CD62B;
         --red: #E83F5B;
+        --green: #4CD62B;
         --blue: #007580;
         --blue-dark: #006570;
     }
@@ -18,6 +13,8 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
 
         box-sizing: border-box;
+
+        transition: background-color 0.3s;
 
         ::-webkit-scrollbar {
             width: 5px;
@@ -32,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
             background: var(--blue-dark);
         }
         ::-webkit-scrollbar-track{
-            background: var(--gray-line);
+            background: ##DCDDE0;
             border-radius: 10px;
         }
     }
@@ -56,12 +53,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: var(--background);
-        color: var(--text);
+        background: ${({ theme }) => theme.background};
+        color: ${({ theme }) => theme.text};
     }
 
     h1 {
-        color: var(--title);
+        color: ${({ theme }) => theme.title};
     }
 
     body, input, textarea, button {

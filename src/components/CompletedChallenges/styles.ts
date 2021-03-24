@@ -9,7 +9,7 @@ export const CompletedChallengesContainer = styled.div`
     margin: 2.75rem 0;
     padding-bottom: 1rem;
 
-    border-bottom: 1px solid #d7d8da;
+    border-bottom: 1px solid ${({ theme }) => theme.grayLine};
     font-weight: 500;
 
     span:first-child {

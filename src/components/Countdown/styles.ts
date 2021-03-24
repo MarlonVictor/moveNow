@@ -10,7 +10,7 @@ export const CountdownContainer = styled.div`
     align-items: center;
     font-family: Rajdhani;
     font-weight: 600;
-    color: var(--title);
+    color: ${({ theme }) => theme.title};
 
     > div {
         flex: 1;
@@ -18,7 +18,7 @@ export const CountdownContainer = styled.div`
         align-items: center;
         justify-content: space-evenly;
 
-        background: var(--white);
+        background: ${({ theme }) => theme.card};
         box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
         border-radius: 5px;
 
@@ -37,12 +37,12 @@ export const CountdownContainer = styled.div`
 
         span:first-child {
             flex: 1;
-            border-right: 1px solid #F0F1F3;
+            border-right: 1px solid ${({ theme }) => theme.grayLine};
         }
 
         span:last-child {
             flex: 1;
-            border-left: 1px solid #F0F1F3;
+            border-left: 1px solid ${({ theme }) => theme.grayLine};
         }
     }
 
@@ -83,8 +83,8 @@ export const CountdownButton = styled.button<Props>`
 
         padding-top: 1.4rem;
         
-        background: var(--white);
-        color: var(--text);
+        background: ${({ theme }) => theme.card};
+        color: ${({ theme }) => theme.text};
 
         cursor: not-allowed;
 
@@ -103,8 +103,8 @@ export const CountdownButton = styled.button<Props>`
 
     ${({ active }) => 
         active ? css`
-            background: var(--white);
-            color: var(--title);
+            background: ${({ theme }) => theme.card};
+            color: ${({ theme }) => theme.title};
 
             svg {
                 color: var(--red);
@@ -112,16 +112,16 @@ export const CountdownButton = styled.button<Props>`
 
             &:not(:disabled):hover {
                 background: var(--red);
-                color: var(--white);
+                color: #FFF;
 
                 svg {
-                    color: var(--white);
+                    color: #FFF;
                 }
             }
         `
         : css`
             background: var(--blue);
-            color: var(--white);
+            color: #FFF;
 
             &:not(:disabled):hover {
                 background: var(--blue-dark);

@@ -11,7 +11,7 @@ export const Overlay = styled.div`
     align-items: center;
     justify-content: center;
 
-    background: rgba(242, 243, 245, 0.8);
+    background: ${({ theme }) => theme.bgGradient}
 `
 
 export const Container = styled.div`
@@ -25,7 +25,7 @@ export const Container = styled.div`
     border-radius: 5px;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 
-    background: var(--white);
+    background: ${({ theme }) => theme.card};
 
     header {
         font-size: 8.75rem;
@@ -38,13 +38,13 @@ export const Container = styled.div`
 
     strong {
         font-size: 2.25rem;
-        color: var(--title);
+        color: ${({ theme }) => theme.title};
     }
     p {
         margin-top: 0.25rem;
 
         font-size: 1.25rem;
-        color: var(text);
+        color: ${({ theme }) => theme.text};
     }
 
     button {
