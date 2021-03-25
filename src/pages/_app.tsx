@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
             <GlobalStyle />
-            <button onClick={toggleTheme}>Change</button>
+            {/* <button onClick={toggleTheme}>Change</button> */}
             <Component {...pageProps} />
         </ThemeProvider>
     )
