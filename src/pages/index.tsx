@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { signIn, useSession } from 'next-auth/client';
 
 import { Github } from '@styled-icons/fa-brands/Github';
 import { RightArrowAlt}  from '@styled-icons/boxicons-regular/RightArrowAlt';
@@ -7,10 +8,10 @@ import { RightArrowAlt}  from '@styled-icons/boxicons-regular/RightArrowAlt';
 import { Background, Container, LoginButton } from '../styles/pages/login';
 
 export default function Login() {
+    const [session] = useSession()
     const router = useRouter()
 
-    function logon(e) {
-        e.preventDefault()
+    if (session) {
         router.push('/home')
     }
 
@@ -32,7 +33,7 @@ export default function Login() {
                         Faça login com seu Github para começar
                     </p>
 
-                    <LoginButton type="button" onClick={logon}>
+                    <LoginButton onClick={(): Promise<void> => signIn('github', {callbackUrl: 'http://localhost:3000/home'})}>
                         <span>Entrar com Github</span>
                         <RightArrowAlt />
                     </LoginButton>

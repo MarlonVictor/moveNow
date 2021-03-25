@@ -28,7 +28,7 @@ interface ChallengesContextData {
 }
 
 interface ChallengesProviderProps {
-    children: string;
+    children: any;
     level: number;
     currentExperience: number;
     challengesCompleted: number;

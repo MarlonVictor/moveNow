@@ -5,14 +5,14 @@ import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { ProfileContainer } from './styles';
 
 
-export function Profile() {
+export function Profile({ user }: any) {
     const { level } = useContext(ChallengesContext)
 
     return (
         <ProfileContainer>
-            <img src="https://github.com/MarlonVictor.png" alt="Marlon Victor" />
+            <img src={user.image} alt={user.name} />
             <div>
-                <strong>Marlon Victor</strong>
+                <strong>{user.name}</strong>
                 <p>
                     <img src="icons/level.svg" alt="Level" />
                     Level {level}

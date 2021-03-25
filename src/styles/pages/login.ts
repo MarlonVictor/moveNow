@@ -85,6 +85,7 @@ export const LoginButton = styled.button`
     color: #DCDDE0;
 
     background: linear-gradient(90deg, var(--blue-dark) 0%, rgba(40, 40, 70, 0.2) 100%);
+    outline: none;
 
     transition: .2s;
 
@@ -94,10 +95,16 @@ export const LoginButton = styled.button`
 
     svg {
         width: 5rem; 
-        padding-right: 20px;   
+        padding-right: 20px;
+
+        transition: transform .5s;
     }
 
     &:hover {
         color: #fff;
+
+        svg {
+            transform: translateX(5px);
+        }
     }
 `

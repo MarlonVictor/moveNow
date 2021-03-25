@@ -1,5 +1,8 @@
-import Head from 'next/head';
+import { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/client';
 
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { CountdownProvider } from '../contexts/CountdownContext';
@@ -20,35 +23,50 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
-    return (
-        <ChallengesProvider 
-            level={props.level} 
-            currentExperience={props.currentExperience} 
-            challengesCompleted={props.challengesCompleted}
-        >
-            <Container>
-                <Head>
-                    <title>Home | moveNow</title>
-                </Head>
+    const [session] = useSession()
+    const router = useRouter()
 
-                <ExperienceBar />
+    useEffect(() => {
+        if(!session) {
+            router.push('/')
+        }
+    }, [])
 
-                <CountdownProvider>
-                    <Section>
-                        <div>
-                            <Profile />
-                            <CompletedChallenges />
-                            <Countdown />
-                        </div>
-                        <div>
-                            <ChallengeBox />
-                        </div>
-                    </Section>
-                </CountdownProvider>
-            </Container>
-        </ChallengesProvider>
-    )
+
+    if(session) {
+        return (
+            <ChallengesProvider 
+                level={props.level} 
+                currentExperience={props.currentExperience} 
+                challengesCompleted={props.challengesCompleted}
+            >
+                <Container>
+                    <Head>
+                        <title>Home | moveNow</title>
+                    </Head>
+    
+                    <ExperienceBar />
+    
+                    <CountdownProvider>
+                        <Section>
+                            <div>
+                                <Profile user={session.user} />
+                                <CompletedChallenges />
+                                <Countdown />
+                            </div>
+                            <div>
+                                <ChallengeBox />
+                            </div>
+                        </Section>
+                    </CountdownProvider>
+                </Container>
+            </ChallengesProvider>
+        )
+    } else {
+        return null
+    }
 }
+
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const {level, currentExperience, challengesCompleted} = ctx.req.cookies
