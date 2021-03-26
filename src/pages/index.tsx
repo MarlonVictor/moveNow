@@ -3,9 +3,10 @@ import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/client';
 
 import { Github } from '@styled-icons/fa-brands/Github';
-import { RightArrowAlt}  from '@styled-icons/boxicons-regular/RightArrowAlt';
+import { RightArrowAlt }  from '@styled-icons/boxicons-regular/RightArrowAlt';
 
 import { Background, Container, LoginButton } from '../styles/pages/login';
+
 
 export default function Login() {
     const [session] = useSession()
