@@ -3,6 +3,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
+`
+
+export const Content = styled.div`
+    flex: 1;
+    display: flex;
     flex-direction: column;
 
     height: 100vh;
@@ -11,8 +16,8 @@ export const Container = styled.div`
     margin: 0 auto;
     padding: 2.5rem 2rem;
 
-    @media(max-width: 660px) {
-        padding: 2.5rem 3.5rem;
+    @media(max-width: 720px) {
+        padding: 2.5rem 4.4rem;
     }
 
     @media(max-width: 425px) {

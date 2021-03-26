@@ -11,9 +11,10 @@ import { CompletedChallenges } from '../components/CompletedChallenges';
 import { ExperienceBar } from '../components/ExperienceBar';
 import { ChallengeBox } from '../components/ChallengeBox';
 import { Countdown } from '../components/Countdown';
+import { SideBar } from '../components/SideBar';
 import { Profile } from '../components/Profile';
 
-import { Container, Section } from '../styles/pages/home';
+import { Container, Content, Section } from '../styles/pages/home';
 
 
 interface HomeProps {
@@ -44,21 +45,25 @@ export default function Home(props: HomeProps) {
                     <Head>
                         <title>Home | moveNow</title>
                     </Head>
-    
-                    <ExperienceBar />
-    
-                    <CountdownProvider>
-                        <Section>
-                            <div>
-                                <Profile user={session.user} />
-                                <CompletedChallenges />
-                                <Countdown />
-                            </div>
-                            <div>
-                                <ChallengeBox />
-                            </div>
-                        </Section>
-                    </CountdownProvider>
+                    
+                    <SideBar />
+
+                    <Content>
+                        <ExperienceBar />
+        
+                        <CountdownProvider>
+                            <Section>
+                                <div>
+                                    <Profile user={session.user} />
+                                    <CompletedChallenges />
+                                    <Countdown />
+                                </div>
+                                <div>
+                                    <ChallengeBox />
+                                </div>
+                            </Section>
+                        </CountdownProvider>
+                    </Content>
                 </Container>
             </ChallengesProvider>
         )
