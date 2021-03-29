@@ -11,6 +11,7 @@ export const CountdownContainer = styled.div`
     font-family: Rajdhani;
     font-weight: 600;
     color: ${({ theme }) => theme.title};
+    margin-top: -5px;
 
     > div {
         flex: 1;
