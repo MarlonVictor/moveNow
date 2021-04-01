@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
+
+    background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
 `
 
 export const Content = styled.div`

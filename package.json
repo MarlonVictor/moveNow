@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "repository": "https://github.com/MarlonVictor/moveNow.git",
   "author": "MarlonVictor <cmarlonvictor11@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",

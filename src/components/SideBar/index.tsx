@@ -22,7 +22,7 @@ export function SideBar() {
     return (
         <>
             <Overlay 
-                style={{ visibility: `${isOpened ? 'visible' : 'hidden'}` }} 
+                className={isOpened ? 'visible' : 'invisible'}
                 onClick={() => setIsOpened(false)}
             />
             <Container style={{left: `${isOpened ? '0' : '-7rem'}`}}>
@@ -36,7 +36,7 @@ export function SideBar() {
                         ) : (
                             <Lightbulb onClick={toggleTheme} />
                         )}
-                        <LogOut onClick={(): Promise<void> => signOut({callbackUrl: 'http://localhost:3000/'})} />
+                        <LogOut onClick={(): Promise<void> => signOut()} />
                     </main>
 
                     <footer>

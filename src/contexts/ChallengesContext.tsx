@@ -1,15 +1,15 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import { LevelUpModal } from '../components/LevelUpModal';
 
 import { toast } from 'react-toastify';
 import  Cookies from 'js-cookie';
 
-import challenges from '../../challenges.json';
+import challenges from '../data/challenges.json';
 
 
-interface Challenge {
-    type: 'body' | 'eye';
+interface ChallengeProps {
+    type: string;
     description: string;
     amount: number;
 }
@@ -19,7 +19,7 @@ interface ChallengesContextData {
     currentExperience: number;
     challengesCompleted: number;
     experienceToNextLevel: number;
-    activeChallenge: Challenge;
+    activeChallenge: any;
     levelUp: () => void;
     startNewChallenge: () => void;
     resetChallenge: () => void;
@@ -28,7 +28,7 @@ interface ChallengesContextData {
 }
 
 interface ChallengesProviderProps {
-    children: any;
+    children: ReactNode;
     level: number;
     currentExperience: number;
     challengesCompleted: number;
@@ -42,7 +42,7 @@ export function ChallengesProvider({ children, ...rest } : ChallengesProviderPro
     const [level, setLevel] = useState(rest.level ?? 1)
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0)
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0)
-    const [activeChallenge, setActiveChallenge] = useState(null)
+    const [activeChallenge, setActiveChallenge] = useState<ChallengeProps | null>(null)
     const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
 
     // power calculation to define the experience factor

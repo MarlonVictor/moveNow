@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
             background: var(--blue-dark);
         }
         ::-webkit-scrollbar-track{
-            background: ##DCDDE0;
+            background: #DCDDE0;
             border-radius: 10px;
         }
     }
@@ -51,15 +51,6 @@ export const GlobalStyle = createGlobalStyle`
             // 14px
             font-size: 87.5%;
         }
-    }
-
-    body {
-        background: ${({ theme }) => theme.background};
-        color: ${({ theme }) => theme.text};
-    }
-
-    h1 {
-        color: ${({ theme }) => theme.title};
     }
 
     body, input, textarea, button {

@@ -34,13 +34,12 @@ export default function Login() {
                         Faça login com seu Github para começar
                     </p>
 
-                    <LoginButton onClick={(): Promise<void> => signIn('github', {callbackUrl: 'http://localhost:3000/home'})}>
+                    <LoginButton onClick={(): Promise<void> => signIn('github')}>
                         <span>Entrar com Github</span>
                         <RightArrowAlt />
                     </LoginButton>
                 </div>
             </Container>
-            
         </Background>
     )
 }

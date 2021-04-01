@@ -1,8 +1,5 @@
 import { AppProps } from 'next/app';
-import { useEffect, useState } from 'react';
 import { Provider } from 'next-auth/client';
-
-import Cookies from 'js-cookie';
 
 import { ThemesProvider } from '../contexts/ThemeContext';
 import { GlobalStyle } from '../styles/global';

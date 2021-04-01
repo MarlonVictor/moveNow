@@ -11,6 +11,10 @@ export const Overlay = styled.div`
     @media(min-width: 720px) {
         visibility: hidden !important;
     }
+
+    &.invisible {
+        visibility: hidden;
+    }
 `
 
 export const Container = styled.aside`
