@@ -22,7 +22,7 @@ export const Container = styled.aside`
     height: 100vh;
 
     background: ${({ theme }) => theme.card};
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.03);
 
     transition: left .5s;
 

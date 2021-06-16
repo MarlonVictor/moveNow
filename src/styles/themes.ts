@@ -1,35 +1,35 @@
 export const lightTheme = {
     primary: '#007580',
-    background: '#F2F3F5',
+    background: '#F7F7F7',
     card: '#FFF',
-    text: '#666',
+    text: '#494D4B',
     title: '#2E384D',
-    grayLine: '#DCDDE0',
-    bgGradient: 'rgba(242, 243, 245, 0.8)',
+    grayLine: '#E6E8EB',
+    bgGradient: 'rgba(255, 255, 255, 0.8)',
     btnRed: {
         color: '#E83F5B',
-        background: 'rgba(242, 243, 245, 0.8)'
+        background: '#FFF'
     },
     btnGreen: {
         color: '#4CD62B',
-        background: 'rgba(242, 243, 245, 0.8)'
+        background: '#FFF'
     }
 }
 
 export const darkTheme = {
-    primary: '#ccd6f6',
-    background: '#0d1117',
-    card: '#21262d',
-    text: '#eee',
-    title: '#f2f2f2',
-    grayLine: '#555',
+    primary: '#CCD6F6',
+    background: '#202124',
+    card: '#303134',
+    text: '#DEE0E1',
+    title: '#F2F2F2',
+    grayLine: '#494D4D',
     bgGradient: 'rgba(0, 0, 0, 0.8)',
     btnRed: {
-        color: '#eee',
+        color: '#EEE',
         background: 'rgb(232, 63, 91, 0.5)'
     },
     btnGreen: {
-        color: '#eee',
+        color: '#EEE',
         background: 'rgb(76, 214, 43, 0.5)'
     }
 }

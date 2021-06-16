@@ -26,7 +26,7 @@ export function CompletedChallenges() {
             return (
                 <button 
                     onClick={() => setInitialTime(value)}
-                    style={{ filter: `${initialValue === value && 'brightness(80%)'}` }}
+                    style={{ filter: `${initialValue === value && 'brightness(90%)'}` }}
                 >
                     {name}
                 </button>

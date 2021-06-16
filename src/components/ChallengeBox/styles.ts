@@ -6,7 +6,7 @@ export const ChallengeBoxContainer = styled.div`
 
     background: ${({ theme }) => theme.card};
     border-radius: 5px;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.03);
 
     margin-left: 2.3rem;
 
@@ -115,7 +115,7 @@ export const ChallengeActive = styled.div`
             transition: filter 0.2s;
 
             &:hover {
-                filter: brightness(.9);
+                filter: brightness(95%);
             }
         }
 

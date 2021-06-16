@@ -20,7 +20,7 @@ export const CountdownContainer = styled.div`
         justify-content: space-evenly;
 
         background: ${({ theme }) => theme.card};
-        box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.03);
         border-radius: 5px;
 
         font-size: 8rem;

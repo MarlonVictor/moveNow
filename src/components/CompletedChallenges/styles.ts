@@ -41,7 +41,7 @@ export const ButtonContainer = styled.div`
         transition: filter .3s;
 
         &:hover {
-            filter: brightness(90%);
+            filter: brightness(95%);
         }
 
         &:disabled {
